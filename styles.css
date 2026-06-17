@@ -119,3 +119,16 @@ h1 { margin: 0; font-size: clamp(3.4rem, 10vw, 8.5rem); line-height: 0.88; lette
   margin: 28px 0 10px;
   letter-spacing: -0.03em;
 }
+
+.date-badge.blank {
+  color: transparent;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+.sources-list a {
+  color: #f6f3ed;
+  text-decoration-color: rgba(243, 123, 33, 0.7);
+  text-underline-offset: 3px;
+}
+.sources-list a:hover { color: #f37b21; }
