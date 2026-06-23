@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <title>My Interests</title>
   <meta name="description" content="Launchpad of data for my interests" />
   <link rel="stylesheet" href="styles.css" />
@@ -11,104 +12,49 @@
   <main class="shell">
     <section class="hero">
       <h1>My Interests</h1>
-      <p class="subtitle">Launchpad of data for my interests</p>
+      <p class="subtitle">Choose a topic to browse its published briefing archive by date.</p>
       <div class="status-row" aria-label="dashboard status">
         <span class="pulse"></span>
-        <span>New briefing tiles appear here when published</span>
+        <span>Topic pages contain the dated story archive</span>
       </div>
     </section>
 
-    <section class="grid" aria-label="briefing links">
-      <!-- daily-tiles:newest-first -->
-      <a class="briefing-card saffron" href="briefings/india/2026-06-22.html">
-        <span class="date-badge">Mon, Jun 22, 2026</span>
-        <span class="icon">🇮🇳</span>
-        <span class="label">India Daily</span>
-        <span class="desc">Softer crude and FII buying lifted equities, but the rupee still weakened; CPI/export data look steady while FX pressure remains central.</span>
-      </a>
-      <a class="briefing-card amber" href="briefings/ram-market/2026-06-22.html">
-        <span class="date-badge">Mon, Jun 22, 2026</span>
-        <span class="icon">💾</span>
-        <span class="label">RAM Market</span>
-        <span class="desc">DDR5 spot firms to $46.167 as HBM4E sampling accelerates; supply stays tight but near-term momentum looks less explosive.</span>
-      </a>
-      <a class="briefing-card violet" href="briefings/ai-tech/2026-06-22.html">
-        <span class="date-badge">Mon, Jun 22, 2026</span>
-        <span class="icon">🧠</span>
-        <span class="label">AI Tech News</span>
-        <span class="desc">ARD and Agent Finder, Copilot app GA, OpenAI Daybreak, Anthropic policy shock, GLM-5.2, and Grok API updates.</span>
-      </a>
-      <a class="briefing-card saffron" href="briefings/india/2026-06-19.html">
-        <span class="date-badge">Fri, Jun 19, 2026</span>
-        <span class="icon">🇮🇳</span>
-        <span class="label">India Daily</span>
-        <span class="desc">IT dragged indices lower while WPI/fuel pressure, a wider trade deficit and a $10B reserves drop keep rupee/oil risks central.</span>
-      </a>
-      <a class="briefing-card amber" href="briefings/ram-market/2026-06-19.html">
-        <span class="date-badge">Fri, Jun 19, 2026</span>
-        <span class="icon">💾</span>
-        <span class="label">RAM Market</span>
-        <span class="desc">DDR5 spot holds at $46.00 while HBM4E samples move next-gen AI memory into customer qualification.</span>
-      </a>
-      <a class="briefing-card violet" href="briefings/ai-tech/2026-06-19.html">
-        <span class="date-badge">Fri, Jun 19, 2026</span>
-        <span class="icon">🧠</span>
-        <span class="label">AI Tech News</span>
-        <span class="desc">Claude Fable 5, Copilot credit metrics, Mistral Vibe agents, Kimi K2.7 Code, and agent framework hardening.</span>
-      </a>
-      <a class="briefing-card red" href="briefings/indonesia/2026-06-18.html">
-        <span class="date-badge">Thu, Jun 18, 2026</span>
-        <span class="icon">🇮🇩</span>
-        <span class="label">Indonesia Daily</span>
-        <span class="desc">BI hiked to 5.75% and tightened FX rules; rupiah still weakened near 17,874 as markets test the defense package.</span>
-      </a>
-      <a class="briefing-card saffron" href="briefings/india/2026-06-18.html">
-        <span class="date-badge">Thu, Jun 18, 2026</span>
-        <span class="icon">🇮🇳</span>
-        <span class="label">India Daily</span>
-        <span class="desc">Rupee firmed near ₹94.34/$; lower crude and RBI inflow tools support markets while CETA goes live Jul 15.</span>
-      </a>
-      <a class="briefing-card amber" href="briefings/ram-market/2026-06-18.html">
-        <span class="date-badge">Thu, Jun 18, 2026</span>
-        <span class="icon">💾</span>
-        <span class="label">RAM Market</span>
-        <span class="desc">DDR5 spot jumped 1.32% to $46.00; HBM4E samples and Apple cost warnings show tight supply.</span>
-      </a>
-      <a class="briefing-card blue" href="briefings/germany.html">
-        <span class="date-badge">Wed, Jun 17, 2026</span>
-        <span class="icon">🇩🇪</span>
-        <span class="label">Germany Economy</span>
-        <span class="desc">GDP is growing again, but weak orders and energy pressure keep the rebound fragile.</span>
-      </a>
+    <section class="grid" aria-label="major briefing topics">
       <a class="briefing-card amber" href="briefings/ram-market.html">
-        <span class="date-badge">Wed, Jun 17, 2026</span>
+        <span class="date-badge">Latest: Mon, Jun 22, 2026</span>
         <span class="icon">💾</span>
         <span class="label">RAM Market</span>
-        <span class="desc">DDR5 spot climbed to $45.40; HBM/LPDRAM allocation remains tight.</span>
+        <span class="desc">DRAM, DDR5, HBM, supply, demand, and AI-memory market signals. 4 published stories.</span>
       </a>
       <a class="briefing-card red" href="briefings/indonesia.html">
-        <span class="date-badge blank">&nbsp;</span>
+        <span class="date-badge">Latest: Thu, Jun 18, 2026</span>
         <span class="icon">🇮🇩</span>
         <span class="label">Indonesia Daily</span>
-        <span class="desc">No economy briefing article published yet.</span>
+        <span class="desc">Indonesia macro, markets, rupiah, policy, and daily economy signals. 1 published story.</span>
       </a>
       <a class="briefing-card saffron" href="briefings/india.html">
-        <span class="date-badge blank">&nbsp;</span>
+        <span class="date-badge">Latest: Mon, Jun 22, 2026</span>
         <span class="icon">🇮🇳</span>
         <span class="label">India Daily</span>
-        <span class="desc">No economy briefing article published yet.</span>
+        <span class="desc">India macro, equities, rupee, trade, inflation, policy, and daily economy signals. 3 published stories.</span>
       </a>
       <a class="briefing-card violet" href="briefings/ai-tech.html">
-        <span class="date-badge blank">&nbsp;</span>
+        <span class="date-badge">Latest: Mon, Jun 22, 2026</span>
         <span class="icon">🧠</span>
         <span class="label">AI Tech News</span>
-        <span class="desc">No Wednesday edition; next scheduled digest is Friday.</span>
+        <span class="desc">AI product launches, model updates, agent platforms, developer tooling, and policy moves. 2 published stories.</span>
+      </a>
+      <a class="briefing-card blue" href="briefings/germany.html">
+        <span class="date-badge">Latest: Wed, Jun 17, 2026</span>
+        <span class="icon">🇩🇪</span>
+        <span class="label">Germany Economy</span>
+        <span class="desc">Germany growth, inflation, trade, labor, industry, and macro outlook. 1 published story.</span>
       </a>
       <a class="briefing-card green" href="briefings/policy-stock.html">
-        <span class="date-badge blank">&nbsp;</span>
+        <span class="date-badge">Scheduled: Jun 30, 2026</span>
         <span class="icon">🏛️</span>
         <span class="label">Policy → Stock</span>
-        <span class="desc">Monthly policy mapping runs at month-end; next expected Jun 30.</span>
+        <span class="desc">Monthly public-law and executive-order mapping to sector and public-equity exposure.</span>
       </a>
     </section>
   </main>
