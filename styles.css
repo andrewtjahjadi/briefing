@@ -132,3 +132,43 @@ h1 { margin: 0; font-size: clamp(3.4rem, 10vw, 8.5rem); line-height: 0.88; lette
   text-underline-offset: 3px;
 }
 .sources-list a:hover { color: #f37b21; }
+.archive-list {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+}
+.archive-item a,
+.archive-empty {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255,255,255,0.035);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.archive-item a:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent, #f37b21) 70%, white 0%);
+  background: rgba(255,255,255,0.065);
+}
+.archive-title {
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 820;
+  letter-spacing: -0.02em;
+}
+.archive-desc,
+.archive-empty {
+  color: var(--muted);
+  line-height: 1.45;
+}
+.topic-amber { --accent: #f37b21; }
+.topic-red { --accent: #ff334f; }
+.topic-saffron { --accent: #ffb000; }
+.topic-violet { --accent: #a78bfa; }
+.topic-blue { --accent: #5aa7ff; }
+.topic-green { --accent: #52d273; }
