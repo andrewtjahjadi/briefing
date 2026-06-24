@@ -278,7 +278,13 @@ def render_topic_index(slug: str, topic: dict[str, Any], articles: list[Article]
           </a>
         </li>""")
     else:
-        archive_items = ['        <li class="archive-empty">No dated stories published yet.</li>']
+        archive_items = [f'''        <li class="archive-item">
+          <a href="#">
+            <span class="date-badge">{esc(latest_label)}</span>
+            <span class="archive-title">First briefing scheduled</span>
+            <span class="archive-desc">{esc(topic.get('lede', 'No dated stories published yet.'))}</span>
+          </a>
+        </li>''']
     body = f"""  <main class="shell page">
     <a class="back" href="../index.html">← Back to major topics</a>
     <section class="content-card {esc(topic.get('topicClass', ''))}">
