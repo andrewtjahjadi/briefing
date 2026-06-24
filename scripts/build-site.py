@@ -105,6 +105,8 @@ def render_markdown(md: str) -> str:
     out: list[str] = []
     paragraph: list[str] = []
     in_ul = False
+    current_section: str | None = None
+    emitted_sources = False
 
     def close_paragraph() -> None:
         nonlocal paragraph
@@ -118,6 +120,46 @@ def render_markdown(md: str) -> str:
             out.append("      </ul>")
             in_ul = False
 
+    def render_sources_paragraph(text: str) -> bool:
+        """Render legacy inline `**Sources:** a, b, c` paragraphs as source lists.
+
+        The house-style validator expects linked sources to live under
+        `ul.meta-list.sources-list`. Some older hand-authored pages kept sources
+        in a single paragraph; preserve the links while normalizing the shape.
+        """
+        nonlocal emitted_sources
+        prefix = "**Sources:**"
+        if not text.startswith(prefix):
+            return False
+        close_paragraph(); close_ul()
+        out.append("      <h2>Sources</h2>")
+        out.append('      <ul class="meta-list sources-list">')
+        for item in [part.strip() for part in text[len(prefix):].split(", ") if part.strip()]:
+            out.append(f"        <li>{render_inline(item)}</li>")
+        out.append("      </ul>")
+        emitted_sources = True
+        return True
+
+    def append_derived_sources() -> None:
+        nonlocal emitted_sources
+        if emitted_sources:
+            return
+        links: list[tuple[str, str]] = []
+        seen: set[str] = set()
+        for label, url in re.findall(r"\[([^\]]+)\]\(([^)]+)\)", md):
+            if url in seen:
+                continue
+            seen.add(url)
+            links.append((label, url))
+        if not links:
+            return
+        out.append("      <h2>Sources</h2>")
+        out.append('      <ul class="meta-list sources-list">')
+        for label, url in links:
+            out.append(f'        <li><a href="{esc(url)}">{render_inline(label)}</a></li>')
+        out.append("      </ul>")
+        emitted_sources = True
+
     for line in lines:
         stripped = line.strip()
         if not stripped:
@@ -125,7 +167,11 @@ def render_markdown(md: str) -> str:
             continue
         if stripped.startswith("## "):
             close_paragraph(); close_ul()
-            out.append(f"      <h2>{render_inline(stripped[3:].strip())}</h2>")
+            heading = stripped[3:].strip()
+            current_section = heading.lower()
+            if current_section == "sources":
+                emitted_sources = True
+            out.append(f"      <h2>{render_inline(heading)}</h2>")
             continue
         if stripped.startswith("# "):
             # Article title is rendered by the template from front matter.
@@ -133,14 +179,18 @@ def render_markdown(md: str) -> str:
         if stripped.startswith("- "):
             close_paragraph()
             if not in_ul:
-                out.append('      <ul class="meta-list">')
+                list_class = "meta-list sources-list" if current_section == "sources" else "meta-list"
+                out.append(f'      <ul class="{list_class}">')
                 in_ul = True
             out.append(f"        <li>{render_inline(stripped[2:].strip())}</li>")
+            continue
+        if render_sources_paragraph(stripped):
+            current_section = "sources"
             continue
         close_ul()
         paragraph.append(stripped)
 
-    close_paragraph(); close_ul()
+    close_paragraph(); close_ul(); append_derived_sources()
     return "\n".join(out)
 
 
