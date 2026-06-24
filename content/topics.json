@@ -1,0 +1,67 @@
+{
+  "india": {
+    "title": "🇮🇳 India Daily",
+    "icon": "🇮🇳",
+    "lede": "India macro, equities, rupee, trade, inflation, policy, and daily economy signals.",
+    "color": "saffron",
+    "topicClass": "topic-saffron"
+  },
+  "indonesia": {
+    "title": "🇮🇩 Indonesia Daily",
+    "icon": "🇮🇩",
+    "lede": "Indonesia macro, markets, rupiah, policy, and daily economy signals.",
+    "color": "red",
+    "topicClass": "topic-red"
+  },
+  "ram-market": {
+    "title": "💾 RAM Market",
+    "icon": "💾",
+    "lede": "DRAM, DDR5, HBM, supply, demand, and AI-memory market signals.",
+    "color": "amber",
+    "topicClass": "topic-amber"
+  },
+  "ai-tech": {
+    "title": "🧠 AI Tech News",
+    "icon": "🧠",
+    "lede": "AI product launches, model updates, agent platforms, developer tooling, and policy moves.",
+    "color": "violet",
+    "topicClass": "topic-violet",
+    "schedule": [
+      "Runs twice weekly: **Monday** and **Friday** at 10:00 AM PT."
+    ]
+  },
+  "germany": {
+    "title": "🇩🇪 Germany Economy",
+    "icon": "🇩🇪",
+    "lede": "Germany growth, inflation, trade, labor, industry, and macro outlook.",
+    "color": "blue",
+    "topicClass": "topic-blue"
+  },
+  "france": {
+    "title": "🇫🇷 France Economy",
+    "icon": "🇫🇷",
+    "lede": "France growth, inflation, industry, labor, consumption, confidence, and macro outlook.",
+    "color": "teal",
+    "topicClass": "topic-blue"
+  },
+  "ukraine-war": {
+    "title": "🇺🇦 Ukraine War Sentiment",
+    "icon": "🇺🇦",
+    "lede": "Daily public-web read on the Russia–Ukraine war: battlefield signals, online narratives, and who appears to be winning the day.",
+    "color": "blue",
+    "topicClass": "topic-blue"
+  },
+  "policy-stock": {
+    "title": "🏛️ Policy → Stock",
+    "icon": "🏛️",
+    "lede": "Monthly public-law and executive-order mapping to sector and public-equity exposure.",
+    "color": "green",
+    "topicClass": "topic-green",
+    "latestLabel": "Scheduled: Jun 30, 2026",
+    "schedule": [
+      "Runs near month-end and only produces a full briefing on the final calendar day of the month.",
+      "Next expected production date: **2026-06-30**.",
+      "Coverage: US public laws, executive orders, significant rules, affected sectors/tickers, lobbying-spend signals, and thesis-level stock mapping."
+    ]
+  }
+}
