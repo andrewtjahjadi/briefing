@@ -305,15 +305,19 @@ def plural_story(count: int) -> str:
 
 
 def render_home(topics: dict[str, dict[str, Any]], by_topic_desc: dict[str, list[Article]]) -> str:
-    # Show newest individual daily articles first for high-cadence topics, then topic archive cards.
+    # Show individual daily articles first for high-cadence topics, newest first, then topic archive cards.
     cards: list[str] = []
-    for slug in ["india", "indonesia", "ram-market"]:
-        articles = by_topic_desc.get(slug, [])
-        if not articles:
-            continue
-        topic = topics[slug]
-        article = articles[0]
-        cards.append(f"""      <a class="briefing-card {esc(topic['color'])}" href="{esc(article.href)}" data-briefing="{esc(slug)}" data-date="{esc(article.date)}">
+    daily_slugs = ["india", "indonesia", "ram-market"]
+    daily_slug_order = {slug: index for index, slug in enumerate(daily_slugs)}
+    daily_articles = [
+        article
+        for slug in daily_slugs
+        for article in by_topic_desc.get(slug, [])
+    ]
+    daily_articles.sort(key=lambda article: (article.date, -daily_slug_order[article.topic]), reverse=True)
+    for article in daily_articles:
+        topic = topics[article.topic]
+        cards.append(f"""      <a class="briefing-card {esc(topic['color'])}" href="{esc(article.href)}" data-briefing="{esc(article.topic)}" data-date="{esc(article.date)}">
         <span class="date-badge">{pretty_date(article.date)}</span>
         <span class="icon">{esc(topic['icon'])}</span>
         <span class="label">{esc(topic['title'])} — {esc(article.archive_title)}</span>
@@ -342,7 +346,7 @@ def render_home(topics: dict[str, dict[str, Any]], by_topic_desc: dict[str, list
     </section>
 
     <section class="grid" aria-label="major briefing topics">
-      <!-- generated from content/ by scripts/build-site.py -->
+      <!-- daily-tiles:newest-first -->
 {chr(10).join(cards)}
     </section>
   </main>"""
