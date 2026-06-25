@@ -63,5 +63,12 @@
       "Next expected production date: **2026-06-30**.",
       "Coverage: US public laws, executive orders, significant rules, affected sectors/tickers, lobbying-spend signals, and thesis-level stock mapping."
     ]
+  },
+  "micron": {
+    "title": "💽 Micron Earnings",
+    "icon": "💽",
+    "lede": "Micron earnings, HBM/DRAM/NAND cycle signals, AI-memory demand, guidance, and risk context.",
+    "color": "blue",
+    "topicClass": "topic-blue"
   }
 }
