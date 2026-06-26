@@ -307,7 +307,7 @@ def plural_story(count: int) -> str:
 def render_home(topics: dict[str, dict[str, Any]], by_topic_desc: dict[str, list[Article]]) -> str:
     # Show individual daily articles first for high-cadence topics, newest first, then topic archive cards.
     cards: list[str] = []
-    daily_slugs = ["india", "indonesia", "ram-market"]
+    daily_slugs = ["ai-tech", "india", "indonesia", "ram-market"]
     daily_slug_order = {slug: index for index, slug in enumerate(daily_slugs)}
     daily_articles = [
         article
